@@ -1,0 +1,25 @@
+<div>
+    <a href="/new">Create A New Client</a>
+</div>
+
+<table>
+    <tr>
+        <th>Last Name</th>
+        <th>First Name</th>
+        <th>Phone Number </th>
+        <th>Date Of Contact  </th>
+        <th>  </th>
+    </tr>
+    {% for client in clients %}
+    <tr>
+        <td>{{client.last_name}}</td>
+        <td>{{client.first_name}}</td>
+        <td>{{client.phone_number}}</td>
+        <td>{{client.date_of_contact}}</td>
+        <td>
+            <a href="{% url 'edit' client.id %}"> Edit </a>
+            <a href="{% url 'delete' client.id %}"> Delete </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
